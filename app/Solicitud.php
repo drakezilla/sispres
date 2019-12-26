@@ -39,6 +39,12 @@ class Solicitud extends Model {
         return $gestor;
     }
     
+    /**
+     * Consulta una o varias solicitudes de hipoteca
+     * @param int $solicitud_id id de la solicitud de hipoteca (opcional)
+     * @return array
+     */
+    
     public function obtenerSolicitud(int $solicitud_id = null)
     {
         $solicitud_raw = DB::table("solicitud_hipoteca")
