@@ -42,7 +42,7 @@ class Solicitud extends Model {
     public function obtenerSolicitud(int $solicitud_id = null)
     {
         $solicitud_raw = DB::table("solicitud_hipoteca")
-                    ->select(DB::raw("solicitud_hipoteca.id, solicitud_hipoteca.cliente_id, CONCAT(cliente.nombres, ' ', cliente.apellidos) as cliente, solicitud_hipoteca.gestor_id, gestor.nombre, solicitud_hipoteca.ahorros_aportados, solicitud_hipoteca.precio_compra, solicitud_hipoteca.fecha_solicitud, solicitud_hipoteca.fecha_compra"))
+                    ->select(DB::raw("solicitud_hipoteca.id, solicitud_hipoteca.cliente_id, CONCAT(cliente.nombres, ' ', cliente.apellidos) as cliente, solicitud_hipoteca.gestor_id, gestor.nombre as gestor, solicitud_hipoteca.ahorros_aportados, solicitud_hipoteca.precio_compra, solicitud_hipoteca.fecha_solicitud, solicitud_hipoteca.fecha_compra"))
                     ->join("gestor","solicitud_hipoteca.gestor_id","=","gestor.id")
                     ->join("cliente","solicitud_hipoteca.cliente_id","=","cliente.id");
         if(!empty($solicitud_id))
